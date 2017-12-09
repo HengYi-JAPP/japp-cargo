@@ -1,0 +1,34 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{title$|async}}
+  </div>
+  <button class="close" mat-mini-fab matDialogClose *ngIf="isMobile$|async">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-form-field floatPlaceholder="never">
+  <input [formControl]="searchQCtrl" matInput placeholder="搜索">
+</mat-form-field>
+
+<mat-divider></mat-divider>
+<mat-nav-list dense fxFlex style="overflow-y: auto;" *ngIf="!multi">
+  <mat-list-item *ngFor="let t001l of t001ls$|async" (click)="pick(t001l)">
+    <div matLine fxLayout="row" fxLayoutAlign="space-around center">
+      <span fxFlex="25">{{t001l.werks}}</span>
+      <span fxFlex="25">{{t001l.lgort}}</span>
+      <span fxFlex="50">{{t001l.lgobe}}</span>
+    </div>
+  </mat-list-item>
+</mat-nav-list>
+
+<mat-selection-list dense fxFlex style="overflow-y: auto;" #t001ls *ngIf="multi">
+  <mat-list-option *ngFor="let t001l of t001ls$|async" checkboxPosition="before" [value]="t001l">
+    <div matLine fxLayout="row" fxLayoutAlign="space-around center">
+      <span fxFlex="25">{{t001l.werks}}</span>
+      <span fxFlex="25">{{t001l.lgort}}</span>
+      <span fxFlex="50">{{t001l.lgobe}}</span>
+    </div>
+  </mat-list-option>
+</mat-selection-list>
+<button mat-button (click)="pickMulti()" color="primary" *ngIf="multi">确定</button>

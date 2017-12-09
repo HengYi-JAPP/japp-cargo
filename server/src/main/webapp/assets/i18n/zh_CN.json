@@ -1,0 +1,90 @@
+{
+  "TITLE": "@Cargo",
+  "VALIDATORS": {
+    "REQUIRED": "必输项",
+    "MIN": "最小值：{{min}}",
+    "MAX": "最大值：{{max}}",
+    "MIN-LENGTH": "至少{{requiredLength}}个字符；当前{{actualLength}}个字符",
+    "MAX-LENGTH": "最大值为 {{MAXLENGTH}}"
+  },
+  "speed": "速度",
+  "direction": "方向",
+  "geoPosition": "地理位置",
+  "carMarkLabel": {
+    "province": "省市",
+    "road": "道路",
+    "near": "附近",
+    "speedUnit": "公里/小时",
+    "km": "日程",
+    "kmUnit": "公里"
+  },
+  "TOAST": {
+    "SUCCESS": "操作成功"
+  },
+  "PAGINATOR": {
+    "ITEMSPERPAGELABEL": "每页数量"
+  },
+  "COMMON": {
+    "TITLE": "标题",
+    "HELP": "帮助",
+    "MANAGE": "管理",
+    "NOTE": "备注",
+    "AUDIT": "审核",
+    "FIELD": "字段",
+    "LOG": "日志",
+    "TYPE": "类型",
+    "WEIXIN_PAY": "微信支付",
+    "WEIXIN_PAY_SUCCESS": "微信支付成功",
+    "DOWNLOAD": "下载",
+    "TO_TOP": "置顶",
+    "SETTING": "设置",
+    "SORTBY": "排序",
+    "FILTERBY": "筛选",
+    "MOVE-UP": "上移",
+    "MOVE-DOWN": "下移",
+    "DEFAULT": "默认",
+    "SELECT": "选择",
+    "MOBILE": "手机",
+    "READ": "阅读",
+    "MY": "我的",
+    "PAIED": "已付款",
+    "NO_PAIED": "未付款",
+    "YES": "是",
+    "NO": "否",
+    "ALL": "全部",
+    "SHARE": "分享",
+    "IMAGE-PASTE": "图片粘贴",
+    "COMMENT": "评论",
+    "LOGOUT": "退出",
+    "PERSONAL": "个人信息",
+    "MENU": "菜单",
+    "NAME": "名称",
+    "SEARCH": "搜索",
+    "CANCEL": "取消",
+    "START_DATE": "开始时间",
+    "DELETE_CONFIRM": "删除确认？",
+    "FINISH_CONFIRM": "完成确认？",
+    "CONFIRM": "确认",
+    "MOVE_DOWN": "下移",
+    "MOVE_UP": "上移",
+    "SELECT_ALL": "全选",
+    "UNSELECT_ALL": "全不选",
+    "TAG": "标签",
+    "NEW": "新建",
+    "EDIT": "修改",
+    "SAVE": "保存",
+    "DELETE": "删除",
+    "FINISH": "完成",
+    "CONTENT": "内容",
+    "ATTACHMENT": "附件",
+    "OPERATE": "操作",
+    "OPERATE_MORE": "更多操作",
+    "UPLOAD": "上传附件"
+  },
+  "VALID": {
+    "REQUIRED": "必输"
+  },
+  "ERROR_CODE": {
+    "E00002": "请输入内容！"
+  }
+}

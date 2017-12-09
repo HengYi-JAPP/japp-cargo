@@ -1,0 +1,10 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{dialogTitle}}
+  </div>
+  <button tabindex="-1" type="button" class="close" mat-mini-fab matDialogClose>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div [id]="mapDomId" fxFlex></div>

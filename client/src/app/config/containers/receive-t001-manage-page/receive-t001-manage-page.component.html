@@ -1,0 +1,41 @@
+<button type="button" (click)="create()" mat-mini-fab class="my-add" matTooltip="新增收货公司">
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-table [dataSource]="dataSource" fxFlex style="overflow-y: auto">
+
+  <ng-container cdkColumnDef="butxt">
+    <mat-header-cell *cdkHeaderCellDef>描述</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.t001.butxt}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="bukrs">
+    <mat-header-cell *cdkHeaderCellDef>公司代码</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.bukrs}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="kunnr">
+    <mat-header-cell *cdkHeaderCellDef>客户(关联交易)</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.kna1?.kunnr|delPreZero}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="lifnr">
+    <mat-header-cell *cdkHeaderCellDef>供应商(关联交易)</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.lfa1?.lifnr|delPreZero}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="btns">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.OPERATE'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button (click)="update(row)" mat-button color="primary">
+        {{'COMMON.EDIT'|translate}}
+      </button>
+      <button mat-button (click)="delete(row)" mat-button color="warn">
+        {{'COMMON.DELETE'|translate}}
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

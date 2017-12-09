@@ -1,0 +1,47 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{dialogTitle}}
+  </div>
+  <button class="close" mat-mini-fab matDialogClose *ngIf="isMobile$|async">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="receiveT001Form" (ngSubmit)="submit()" fxFlex style="overflow-y: auto;" fxLayout="column">
+  <mat-form-field>
+    <mat-select [formControl]="t001" required placeholder="公司" [compareWith]="compareWithT001">
+      <mat-option *ngFor="let t001 of t001s$|async" [value]="t001">
+        <span fxFlex>{{t001.bukrs}}</span>{{t001.butxt}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="t001.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [formControl]="kna1" [matAutocomplete]="autoKna1" placeholder="客户(关联交易)">
+    <mat-autocomplete #autoKna1="matAutocomplete" [displayWith]="displayKna1Fn">
+      <mat-option *ngFor="let it of kna1s$|async" [value]="it" [matTooltip]="it.name1">
+        {{it.kunnr|delPreZero}} {{it.name1}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-hint align="end">关键字搜索</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [formControl]="lfa1" [matAutocomplete]="autoLfa1" placeholder="供应商(关联交易)">
+    <mat-autocomplete #autoLfa1="matAutocomplete" [displayWith]="displayLfa1Fn">
+      <mat-option *ngFor="let it of lfa1s$|async" [value]="it" [matTooltip]="it.name1">
+        {{it.lifnr|delPreZero}} {{it.name1}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-hint align="end">关键字搜索</mat-hint>
+  </mat-form-field>
+
+  <div>
+    <button type="button" (click)="submit()" mat-raised-button color="primary" [disabled]="receiveT001Form.pristine||receiveT001Form.invalid">
+      完成
+    </button>
+  </div>
+</form>

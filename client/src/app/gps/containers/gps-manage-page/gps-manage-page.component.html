@@ -1,0 +1,55 @@
+<form [formGroup]="searchForm">
+  <span style="font-size: larger;margin:0 16px;">
+    宁波发往聚合物槽车位置跟踪
+  </span>
+
+  <mat-form-field floatPlaceholder="never">
+    <input [formControl]="searchDate" matInput [matDatepicker]="searchDatePicker" [max]="maxSearchDate">
+    <mat-datepicker-toggle matSuffix [for]="searchDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #searchDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field floatPlaceholder="never">
+    <input [formControl]="carNoQ" matInput placeholder="搜索车牌号">
+  </mat-form-field>
+</form>
+
+<mat-table [dataSource]="dataSource" fxFlex style="overflow-y: auto;">
+
+  <ng-container cdkColumnDef="date">
+    <mat-header-cell *cdkHeaderCellDef>日期</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.erdat|date:'yyyy-MM-dd'}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="carNo">
+    <mat-header-cell *cdkHeaderCellDef>车牌号</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.carNo}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="arktx">
+    <mat-header-cell *cdkHeaderCellDef>物料描述</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.lips?.arktx}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="lfimg">
+    <mat-header-cell *cdkHeaderCellDef>数量</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.lfimg}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="meins">
+    <mat-header-cell *cdkHeaderCellDef>单位</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.meins}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="btns">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.OPERATE'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button mat-button type="button" (click)="gpsMap(row)" mat-button color="primary">
+        地理位置
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
