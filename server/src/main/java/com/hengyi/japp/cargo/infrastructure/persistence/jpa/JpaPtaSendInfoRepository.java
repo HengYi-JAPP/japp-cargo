@@ -1,23 +1,29 @@
 package com.hengyi.japp.cargo.infrastructure.persistence.jpa;
 
 import com.google.common.collect.Sets;
+import com.hengyi.japp.cargo.Util;
 import com.hengyi.japp.cargo.application.query.PtaSendInfoQuery;
 import com.hengyi.japp.cargo.domain.pta.PtaReceiveInfo;
 import com.hengyi.japp.cargo.domain.pta.PtaSendInfo;
 import com.hengyi.japp.cargo.domain.pta.PtaSendInfo_;
 import com.hengyi.japp.cargo.domain.repository.PtaSendInfoRepository;
+import com.hengyi.japp.cargo.domain.sap.Ylips;
 import org.jzb.J;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
+import java.security.Principal;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 /**
  * Created by jzb on 16-10-28.
@@ -43,6 +49,22 @@ public class JpaPtaSendInfoRepository extends JpaCURDRepository<PtaSendInfo, Str
                 });
         em.merge(receiveInfo);
         return em.merge(sendInfo);
+    }
+
+    @Override
+    public PtaSendInfo queryBy(Ylips ylips) {
+        final TypedQuery<PtaSendInfo> query = em.createNamedQuery("PtaSendInfo.queryByYlips", PtaSendInfo.class)
+                .setParameter("ylips", ylips);
+        return Util.getSingle(query);
+    }
+
+    @Override
+    public Stream<PtaSendInfo> querySendInfo(Principal principal, LocalDate ld) {
+        return em.createNamedQuery("PtaSendInfo.querySendInfo", PtaSendInfo.class)
+                .setParameter("sendDate", J.date(ld))
+                .setParameter("creatorId", principal.getName())
+                .getResultList()
+                .stream();
     }
 
     @Override

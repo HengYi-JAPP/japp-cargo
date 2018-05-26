@@ -9,8 +9,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(MegReceiveInfo.class)
 public abstract class MegReceiveInfo_ extends com.hengyi.japp.cargo.domain.AbstractReceiveInfoEntity_ {
 
-    public static volatile SetAttribute<MegReceiveInfo, MegSapReceiveInfo> sapReceiveInfos;
-    public static volatile SingularAttribute<MegReceiveInfo, String> pickPoundNo;
+	public static volatile SetAttribute<MegReceiveInfo, MegSapReceiveInfo> sapReceiveInfos;
+	public static volatile SingularAttribute<MegReceiveInfo, String> pickPoundNo;
 
 }
 

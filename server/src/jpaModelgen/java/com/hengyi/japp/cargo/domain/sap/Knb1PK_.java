@@ -8,8 +8,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Knb1PK.class)
 public abstract class Knb1PK_ {
 
-    public static volatile SingularAttribute<Knb1PK, String> kunnr;
-    public static volatile SingularAttribute<Knb1PK, String> bukrs;
+	public static volatile SingularAttribute<Knb1PK, String> kunnr;
+	public static volatile SingularAttribute<Knb1PK, String> bukrs;
 
 }
 

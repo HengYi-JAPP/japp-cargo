@@ -1,0 +1,36 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{dialogTitle}}
+  </div>
+  <button class="close" mat-mini-fab matDialogClose *ngIf="isMobile$|async">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="headInfoForm" (ngSubmit)="submit()" fxFlex style="overflow-y: auto;" fxLayout="column">
+  <mat-form-field>
+    <input matInput [formControl]="name" required [placeholder]="'COMMON.NAME'|translate">
+    <mat-error *ngIf="name.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="allT001s">{{'PERMISSION.ALLT001S'|translate}}</mat-checkbox>
+
+  <mat-form-field *ngIf="!allT001s.value">
+    <mat-select [formControl]="t001s" [multiple]="true" required [placeholder]="'T001'|translate" [compareWith]="compareWithT001">
+      <mat-option *ngFor="let t001 of t001s$|async" [value]="t001">
+        {{t001.butxt}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="t001s.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button type="button" (click)="submit()" mat-raised-button color="primary" [disabled]="headInfoForm.pristine||headInfoForm.invalid">
+      {{'COMMON.FINISH'|translate}}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/sends" *ngIf="showSends$|async">{{'NAV.SENDS'|translate}}</a>
+  <a mat-button routerLink="/reports/dailyDetail">{{'NAV.REPORTS-DAILYDETAIL'|translate}}</a>
+  <span fxFlex></span>
+  <a mat-button routerLink="/gps">GPS</a>
+  <a mat-button routerLink="/configs/receiveT001s">配置</a>
+  <a mat-button (click)="export()">{{'COMMON.EXPORT'|translate}}</a>
+  <a mat-button href="/cargo/doc/intro.html" target="_blank">操作手册</a>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -40,6 +40,7 @@ public class Ylips implements Comparable<Ylips>, Serializable {
     @Column(length = 4)
     private String packType;
     /**
+     * -1 = 船运
      * 1 = 槽车
      * 2 = 平板车
      * 3 = 集装箱

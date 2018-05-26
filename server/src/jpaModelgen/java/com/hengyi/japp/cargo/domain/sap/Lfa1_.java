@@ -8,9 +8,9 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Lfa1.class)
 public abstract class Lfa1_ {
 
-    public static volatile SingularAttribute<Lfa1, String> land1;
-    public static volatile SingularAttribute<Lfa1, String> name1;
-    public static volatile SingularAttribute<Lfa1, String> lifnr;
+	public static volatile SingularAttribute<Lfa1, String> land1;
+	public static volatile SingularAttribute<Lfa1, String> name1;
+	public static volatile SingularAttribute<Lfa1, String> lifnr;
 
 }
 

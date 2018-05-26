@@ -1,0 +1,67 @@
+<form [formGroup]="searchForm">
+  <mat-form-field floatPlaceholder="never">
+    <input [formControl]="q" matInput [placeholder]="'TOOLTIP.OPERATORQ'|translate">
+  </mat-form-field>
+</form>
+
+<mat-table [dataSource]="dataSource" fxFlex style="overflow-y: auto;">
+
+  <ng-container cdkColumnDef="name">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.NAME'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      {{row.name}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="defaultReceiveT001">
+    <mat-header-cell *cdkHeaderCellDef>{{'PERMISSION.DEFAULTRECEIVET001'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      {{row.permission?.defaultReceiveT001?.butxt}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="admin">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.ADMIN'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row" [style.color]="row.admin?'darkgreen':''">
+      {{('COMMON.'+(row.admin?'YES':'NO'))|translate}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="allT001s">
+    <mat-header-cell *cdkHeaderCellDef>{{'PERMISSION.ALLT001S'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row" [style.color]="row.permission?.allT001s?'darkgreen':''">
+      {{('COMMON.'+(row.permission?.allT001s?'YES':'NO'))|translate}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="t001s">
+    <mat-header-cell *cdkHeaderCellDef>{{'PERMISSION.T001S'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <span *ngIf="row.permission?.allT001s">*</span>
+      <div *ngIf="!row.permission?.allT001s">
+        <p *ngFor="let t001 of row.permission?.t001s">
+          {{t001.butxt}}
+        </p>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="btns">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.OPERATE'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button mat-button (click)="update(row)" mat-button color="primary">
+        {{'COMMON.PERMISSION'|translate}}
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator (page)="page($event)"
+               [length]="count$|async"
+               [pageIndex]="0"
+               [pageSize]="pageSize$|async"
+               [pageSizeOptions]="[10,20]">
+</mat-paginator>

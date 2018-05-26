@@ -1,5 +1,6 @@
 package com.hengyi.japp.cargo.domain.repository;
 
+import com.hengyi.japp.cargo.application.query.OperatorQuery;
 import com.hengyi.japp.cargo.domain.Operator;
 
 import java.security.Principal;
@@ -15,7 +16,5 @@ public interface OperatorRepository {
 
     Operator findByHrIdOrOaId(String uid);
 
-    long count();
-
-    Stream<Operator> queryAll(int first, int pageSize);
+    void query(OperatorQuery query);
 }

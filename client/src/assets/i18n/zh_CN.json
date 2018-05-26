@@ -1,12 +1,38 @@
 {
   "TITLE": "@Cargo",
-  "VALIDATORS": {
-    "REQUIRED": "必输项",
-    "MIN": "最小值：{{min}}",
-    "MAX": "最大值：{{max}}",
-    "MIN-LENGTH": "至少{{requiredLength}}个字符；当前{{actualLength}}个字符",
-    "MAX-LENGTH": "最大值为 {{MAXLENGTH}}"
+  "NAV": {
+    "SENDS": "收货",
+    "REPORTS-DAILYDETAIL": "收货明细表"
   },
+  "SENDDATE": "发货日期",
+  "SEND-LFIMG": "发货净重",
+  "RECEIVE-LFIMG": "收货净重",
+  "DIFF-LFIMG": "差值",
+  "RECEIVEDATE": "收货日期",
+  "DIFFLFIMG1": "地磅调整数",
+  "DIFFLFIMG2": "特殊调整数",
+  "FINALLFIMG": "实际收货数量",
+  "PACKNO": "包数",
+  "CARNO": "车牌号",
+  "SENDLFIMGPERPACK": "发货平均重量/包",
+  "RECEIVELFIMGPERPACK": "发货平均重量/包",
+  "LITTLELFIMGPERPACK": "小磅平均值/包",
+  "PACKTYPE": "包装方式",
+  "TRANSTYPE": "运输方式",
+  "PICKPOUNDNO": "提货单号",
+  "SENDNOTE": "发货备注",
+  "RECEIVENOTE": "收货备注",
+  "PACKNO": "收货平均重量/包",
+  "RECEIVET001L": "卸货地",
+  "HEADINFO": "抬头",
+  "TRANSCORP": "物流公司",
+  "SUPPLYINFO": "货源地",
+  "WHARFT001L": "码头外库",
+  "LFA1": "供应商",
+  "T001": "公司",
+  "T001W": "工厂",
+  "T001L": "库存地",
+  "RECEIVET001": "收货公司",
   "speed": "速度",
   "direction": "方向",
   "geoPosition": "地理位置",
@@ -18,11 +44,34 @@
     "km": "日程",
     "kmUnit": "公里"
   },
+  "TOOLTIP": {
+    "SEND_BY_NB": "外单位发货",
+    "SEND_BY_OUT": "外单位发货",
+    "OPERATORQ": "搜索名字",
+    "NEW-SUPPLYINFO": "新增货源地",
+    "NEW-TRANSCORP": "新增物流公司",
+    "NEW-WHARFT001L": "新增码头外库",
+    "NEW-HEADINFO": "新增抬头",
+    "CARNOQ": "搜索车牌号"
+  },
+  "VALIDATORS": {
+    "REQUIRED": "必输项",
+    "MIN": "最小值：{{min}}",
+    "MAX": "最大值：{{max}}",
+    "MIN-LENGTH": "至少{{requiredLength}}个字符；当前{{actualLength}}个字符",
+    "MAX-LENGTH": "最大值为 {{MAXLENGTH}}"
+  },
   "TOAST": {
     "SUCCESS": "操作成功"
   },
   "PAGINATOR": {
     "ITEMSPERPAGELABEL": "每页数量"
+  },
+  "PERMISSION": {
+    "DEFAULTRECEIVET001": "默认收货公司",
+    "T001S": "报表查看公司",
+    "ADMIN": "管理员",
+    "ALLT001S": "所有公司"
   },
   "COMMON": {
     "TITLE": "标题",
@@ -38,6 +87,8 @@
     "DOWNLOAD": "下载",
     "TO_TOP": "置顶",
     "SETTING": "设置",
+    "ADMIN": "管理员",
+    "PERMISSION": "权限",
     "SORTBY": "排序",
     "FILTERBY": "筛选",
     "MOVE-UP": "上移",
@@ -45,10 +96,8 @@
     "DEFAULT": "默认",
     "SELECT": "选择",
     "MOBILE": "手机",
-    "READ": "阅读",
     "MY": "我的",
-    "PAIED": "已付款",
-    "NO_PAIED": "未付款",
+    "EXPORT": "导出",
     "YES": "是",
     "NO": "否",
     "ALL": "全部",
@@ -61,7 +110,8 @@
     "NAME": "名称",
     "SEARCH": "搜索",
     "CANCEL": "取消",
-    "START_DATE": "开始时间",
+    "START_DATE": "开始日期",
+    "END_DATE": "结束日期",
     "DELETE_CONFIRM": "删除确认？",
     "FINISH_CONFIRM": "完成确认？",
     "CONFIRM": "确认",
@@ -85,6 +135,7 @@
     "REQUIRED": "必输"
   },
   "ERROR_CODE": {
-    "E00002": "请输入内容！"
+    "ECLIENT00001": "供应商和抬头，必输其一！",
+    "ECLIENT00002": "码头外库和货源地，必输其一！"
   }
 }

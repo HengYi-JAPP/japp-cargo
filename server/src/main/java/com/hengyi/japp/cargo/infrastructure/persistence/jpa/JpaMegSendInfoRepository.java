@@ -16,8 +16,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
+import java.security.Principal;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 /**
  * Created by jzb on 16-10-28.
@@ -43,6 +46,15 @@ public class JpaMegSendInfoRepository extends JpaCURDRepository<MegSendInfo, Str
                 });
         em.merge(receiveInfo);
         return em.merge(sendInfo);
+    }
+
+    @Override
+    public Stream<MegSendInfo> querySendInfo(Principal principal, LocalDate ld) {
+        return em.createNamedQuery("MegSendInfo.querySendInfo", MegSendInfo.class)
+                .setParameter("sendDate", J.date(ld))
+                .setParameter("creatorId", principal.getName())
+                .getResultList()
+                .stream();
     }
 
     @Override

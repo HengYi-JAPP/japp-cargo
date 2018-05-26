@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
 /**
  * Created by jzb on 16-10-26.
@@ -26,6 +27,13 @@ public class TestResource {
     @GET
     public void get() throws Exception {
         sapSyncSchedule.sync();
+    }
+
+    @Path("idle")
+    @GET
+    @Produces(TEXT_PLAIN)
+    public String idle() throws Exception {
+        return "hello";
     }
 
 }

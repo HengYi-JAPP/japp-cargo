@@ -29,8 +29,4 @@ public class PtaSendInfoQuery extends JPageQuery<Stream<PtaSendInfo>> {
         super(principal, 0, null);
     }
 
-    public PtaSendInfoQuery exe(PtaSendInfoRepository ptaSendInfoRepository) {
-        ptaSendInfoRepository.query(this);
-        return this;
-    }
 }

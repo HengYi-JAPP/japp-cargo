@@ -8,9 +8,9 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(T001l.class)
 public abstract class T001l_ {
 
-    public static volatile SingularAttribute<T001l, String> werks;
-    public static volatile SingularAttribute<T001l, String> lgort;
-    public static volatile SingularAttribute<T001l, String> lgobe;
+	public static volatile SingularAttribute<T001l, String> werks;
+	public static volatile SingularAttribute<T001l, String> lgort;
+	public static volatile SingularAttribute<T001l, String> lgobe;
 
 }
 

@@ -3,7 +3,7 @@ package com.hengyi.japp.cargo.interfaces.res.resources;
 import com.google.common.collect.ImmutableMap;
 import com.hengyi.japp.cargo.application.OperatorService;
 import com.hengyi.japp.cargo.application.command.OperatorPermissionUpdateCommand;
-import com.hengyi.japp.cargo.domain.Operator;
+import com.hengyi.japp.cargo.application.query.OperatorQuery;
 import com.hengyi.japp.cargo.domain.OperatorPermission;
 import com.hengyi.japp.cargo.domain.repository.OperatorPermissionRepository;
 import com.hengyi.japp.cargo.domain.repository.OperatorRepository;
@@ -17,8 +17,9 @@ import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
-import java.util.Collection;
+import java.security.Principal;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -40,11 +41,16 @@ public class OperatorResource {
 
     @GET
     public Map list(@Context SecurityContext sc,
-                    @Valid @Min(0) @QueryParam("first") @DefaultValue("0") int first,
-                    @Valid @Min(10) @QueryParam("pageSize") @DefaultValue("10") int pageSize) throws Exception {
-        final long count = operatorRepository.count();
-        final Collection<Operator> operators = operatorRepository.queryAll(first, pageSize).collect(Collectors.toSet());
-        return ImmutableMap.of("count", count, "operators", operators);
+                    @QueryParam("q") String q,
+                    @QueryParam("defaultReceiveBukrs") Set<String> defaultReceiveBukrsSet,
+                    @Valid @Min(0) @QueryParam("first") int first,
+                    @Min(10) @QueryParam("pageSize") int pageSize) throws Exception {
+        final Principal principal = sc.getUserPrincipal();
+        final OperatorQuery query = new OperatorQuery(principal, first, pageSize);
+        query.q = q;
+        query.defaultReceiveBukrsSet = defaultReceiveBukrsSet;
+        query.exe(operatorRepository);
+        return ImmutableMap.of("count", query.count, "operators", query.result.collect(Collectors.toSet()));
     }
 
     @Path("{id}/permission")

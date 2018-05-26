@@ -8,8 +8,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(T001.class)
 public abstract class T001_ {
 
-    public static volatile SingularAttribute<T001, String> bukrs;
-    public static volatile SingularAttribute<T001, String> butxt;
+	public static volatile SingularAttribute<T001, String> bukrs;
+	public static volatile SingularAttribute<T001, String> butxt;
 
 }
 

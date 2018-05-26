@@ -8,14 +8,14 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Ekpo.class)
 public abstract class Ekpo_ {
 
-    public static volatile SingularAttribute<Ekpo, String> werks;
-    public static volatile SingularAttribute<Ekpo, String> ebelp;
-    public static volatile SingularAttribute<Ekpo, String> bukrs;
-    public static volatile SingularAttribute<Ekpo, String> loekz;
-    public static volatile SingularAttribute<Ekpo, String> lgort;
-    public static volatile SingularAttribute<Ekpo, Ekko> ekko;
-    public static volatile SingularAttribute<Ekpo, String> ebeln;
-    public static volatile SingularAttribute<Ekpo, String> matnr;
+	public static volatile SingularAttribute<Ekpo, String> werks;
+	public static volatile SingularAttribute<Ekpo, String> ebelp;
+	public static volatile SingularAttribute<Ekpo, String> bukrs;
+	public static volatile SingularAttribute<Ekpo, String> loekz;
+	public static volatile SingularAttribute<Ekpo, String> lgort;
+	public static volatile SingularAttribute<Ekpo, Ekko> ekko;
+	public static volatile SingularAttribute<Ekpo, String> ebeln;
+	public static volatile SingularAttribute<Ekpo, String> matnr;
 
 }
 

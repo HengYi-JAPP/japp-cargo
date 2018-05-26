@@ -1,0 +1,57 @@
+<div fxLayoutAlign="space-around center" fxLayout fxLayoutGap="16px" class="search-area">
+  <form [formGroup]="searchForm" fxFlex>
+    <mat-form-field>
+      <input [formControl]="startDate" required matInput [matDatepicker]="startDatePicker" [min]="minDate" [max]="maxDate" [placeholder]="'COMMON.START_DATE'|translate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [formControl]="endDate" required matInput [matDatepicker]="endDatePicker" [min]="minDate" [max]="maxDate" [placeholder]="'COMMON.END_DATE'|translate">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [formControl]="carNoQ" matInput [placeholder]="'TOOLTIP.CARNOQ'|translate">
+    </mat-form-field>
+
+    <button type="button" (click)="search()" mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+
+  <button type="button" (click)="export()" mat-mini-fab tabindex="-1">
+    {{'COMMON.EXPORT'|translate}}
+  </button>
+</div>
+
+<mat-table fxFlex style="overflow-y: auto;" [dataSource]="dataSource">
+  <ng-container cdkColumnDef="receiveDate">
+    <mat-header-cell *cdkHeaderCellDef>{{'RECEIVEDATE'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.receiveInfo?.receiveDate|date:'yyyy-MM-dd'}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="carNo">
+    <mat-header-cell *cdkHeaderCellDef>{{'CARNO'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.carNo}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="sendLfimg">
+    <mat-header-cell *cdkHeaderCellDef>{{'SEND-LFIMG'|translate}}(KG)</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.lfimg}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="receiveLfimg">
+    <mat-header-cell *cdkHeaderCellDef>{{'RECEIVE-LFIMG'|translate}}(KG)</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.receiveInfo?.lfimg}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="diffLfimg">
+    <mat-header-cell *cdkHeaderCellDef>{{'DIFF-LFIMG'|translate}}(KG)</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.receiveInfo?.lfimg-row.lfimg}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -10,12 +10,20 @@ import javax.validation.constraints.NotNull;
  * @author jzb 2017-11-30
  */
 public class MegSendInfoUpdateCommand extends AbstractSendInfoUpdateCommand {
-    @NotNull
+    private int megType;
     private T001lPK wharf;
     private String pickPoundNo;
 
     public T001lPK getWharf() {
         return wharf;
+    }
+
+    public int getMegType() {
+        return megType;
+    }
+
+    public void setMegType(int megType) {
+        this.megType = megType;
     }
 
     public void setWharf(T001lPK wharf) {

@@ -19,6 +19,7 @@ public class Resource {
     @Produces
     @PersistenceContext
     private EntityManager em;
+    public static final String JAPP_EXECUTION_PERMANENT_KEY = "60665c75-6a5f-37ab-b64c-a9bd52a6a518";
 
     @Produces
     public Logger produceLog(InjectionPoint injectionPoint) {

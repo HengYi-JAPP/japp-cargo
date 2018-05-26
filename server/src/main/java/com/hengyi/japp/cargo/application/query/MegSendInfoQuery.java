@@ -26,8 +26,4 @@ public class MegSendInfoQuery extends JPageQuery<Stream<MegSendInfo>> {
         super(principal, 0, null);
     }
 
-    public MegSendInfoQuery exe(MegSendInfoRepository megSendInfoRepository) {
-        megSendInfoRepository.query(this);
-        return this;
-    }
 }

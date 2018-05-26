@@ -14,15 +14,27 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "T_MEGSENDINFO")
 @NamedQueries({
-        @NamedQuery(name = "MegSendInfo.queryBySendDate", query = "SELECT o FROM MegSendInfo o WHERE o.sendDate=:sendDate AND o.deleted=FALSE"),
+        @NamedQuery(name = "MegSendInfo.querySendInfo", query = "SELECT o FROM MegSendInfo o WHERE o.sendDate=:sendDate AND o.creator.id=:creatorId AND o.deleted=FALSE"),
 })
 public class MegSendInfo extends AbstractSendInfoEntity {
+    /**
+     * 0 meg 默认
+     * 1 煤制
+     */
+    private int megType;
     @ManyToOne
-    @NotNull
     private T001l wharf;
     @OneToOne
     @PrimaryKeyJoinColumn
     private MegReceiveInfo receiveInfo;
+
+    public int getMegType() {
+        return megType;
+    }
+
+    public void setMegType(int megType) {
+        this.megType = megType;
+    }
 
     public T001l getWharf() {
         return wharf;

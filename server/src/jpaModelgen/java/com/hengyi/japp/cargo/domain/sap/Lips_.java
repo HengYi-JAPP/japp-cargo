@@ -8,11 +8,11 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Lips.class)
 public abstract class Lips_ {
 
-    public static volatile SingularAttribute<Lips, Likp> likp;
-    public static volatile SingularAttribute<Lips, String> arktx;
-    public static volatile SingularAttribute<Lips, String> posnr;
-    public static volatile SingularAttribute<Lips, String> vbeln;
-    public static volatile SingularAttribute<Lips, String> matnr;
+	public static volatile SingularAttribute<Lips, Likp> likp;
+	public static volatile SingularAttribute<Lips, String> arktx;
+	public static volatile SingularAttribute<Lips, String> posnr;
+	public static volatile SingularAttribute<Lips, String> vbeln;
+	public static volatile SingularAttribute<Lips, String> matnr;
 
 }
 

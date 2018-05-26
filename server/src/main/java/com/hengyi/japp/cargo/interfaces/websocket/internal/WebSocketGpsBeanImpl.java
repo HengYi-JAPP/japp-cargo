@@ -1,7 +1,7 @@
 package com.hengyi.japp.cargo.interfaces.websocket.internal;
 
-import com.hengyi.japp.cargo.application.GpsDataService;
-import com.hengyi.japp.cargo.domain.gps.CarGpsData;
+import com.hengyi.japp.cargo.interfaces.gps.GpsDataService;
+import com.hengyi.japp.cargo.interfaces.gps.CarGpsData;
 import com.hengyi.japp.cargo.interfaces.websocket.WebSocketGpsBean;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;

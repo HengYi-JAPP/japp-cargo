@@ -5,6 +5,8 @@ import com.hengyi.japp.cargo.application.PtaService;
 import com.hengyi.japp.cargo.application.command.EntityDTO;
 import com.hengyi.japp.cargo.application.command.PtaSendInfoUpdateCommand;
 import com.hengyi.japp.cargo.domain.Operator;
+import com.hengyi.japp.cargo.domain.config.HeadInfo;
+import com.hengyi.japp.cargo.domain.config.SupplyInfo;
 import com.hengyi.japp.cargo.domain.config.TransCorp;
 import com.hengyi.japp.cargo.domain.pta.PtaReceiveInfo;
 import com.hengyi.japp.cargo.domain.pta.PtaSapReceiveInfo;
@@ -47,6 +49,10 @@ public class PtaServiceImpl implements PtaService {
     @Inject
     private TransCorpRepository transCorpRepository;
     @Inject
+    private SupplyInfoRepository supplyInfoRepository;
+    @Inject
+    private HeadInfoRepository headInfoRepository;
+    @Inject
     private ApplicationEvents applicationEvents;
 
     @Override
@@ -68,6 +74,16 @@ public class PtaServiceImpl implements PtaService {
                 .map(EntityDTO::getId)
                 .map(transCorpRepository::find)
                 .orElse(null);
+        final SupplyInfo supplyInfo = Optional.ofNullable(command.getSupplyInfo())
+                .map(EntityDTO::getId)
+                .map(supplyInfoRepository::find)
+                .orElse(null);
+        sendInfo.setSupplyInfo(supplyInfo);
+        final HeadInfo headInfo = Optional.ofNullable(command.getHeadInfo())
+                .map(EntityDTO::getId)
+                .map(headInfoRepository::find)
+                .orElse(null);
+        sendInfo.setHeadInfo(headInfo);
         sendInfo.setTransCorp(transCorp);
         sendInfo.setBatchNo(command.getBatchNo());
         sendInfo.setCarNo(command.getCarNo());

@@ -8,13 +8,13 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Operator.class)
 public abstract class Operator_ {
 
-    public static volatile SingularAttribute<Operator, Boolean> deleted;
-    public static volatile SingularAttribute<Operator, String> hrId;
-    public static volatile SingularAttribute<Operator, String> name;
-    public static volatile SingularAttribute<Operator, Boolean> admin;
-    public static volatile SingularAttribute<Operator, String> id;
-    public static volatile SingularAttribute<Operator, String> avatar;
-    public static volatile SingularAttribute<Operator, String> oaId;
+	public static volatile SingularAttribute<Operator, Boolean> deleted;
+	public static volatile SingularAttribute<Operator, String> hrId;
+	public static volatile SingularAttribute<Operator, String> name;
+	public static volatile SingularAttribute<Operator, Boolean> admin;
+	public static volatile SingularAttribute<Operator, String> id;
+	public static volatile SingularAttribute<Operator, String> avatar;
+	public static volatile SingularAttribute<Operator, String> oaId;
 
 }
 

@@ -5,6 +5,8 @@ import com.hengyi.japp.cargo.application.MegService;
 import com.hengyi.japp.cargo.application.command.EntityDTO;
 import com.hengyi.japp.cargo.application.command.MegSendInfoUpdateCommand;
 import com.hengyi.japp.cargo.domain.Operator;
+import com.hengyi.japp.cargo.domain.config.HeadInfo;
+import com.hengyi.japp.cargo.domain.config.SupplyInfo;
 import com.hengyi.japp.cargo.domain.config.TransCorp;
 import com.hengyi.japp.cargo.domain.meg.MegReceiveInfo;
 import com.hengyi.japp.cargo.domain.meg.MegSapReceiveInfo;
@@ -45,6 +47,10 @@ public class MegServiceImpl implements MegService {
     @Inject
     private T001wRepository t001wRepository;
     @Inject
+    private HeadInfoRepository headInfoRepository;
+    @Inject
+    private SupplyInfoRepository supplyInfoRepository;
+    @Inject
     private ApplicationEvents applicationEvents;
 
     @Override
@@ -55,6 +61,16 @@ public class MegServiceImpl implements MegService {
     }
 
     private MegSendInfo save(Principal principal, MegSendInfo sendInfo, MegSendInfoUpdateCommand command) {
+        SupplyInfo supplyInfo = Optional.ofNullable(command.getHeadInfo())
+                .map(EntityDTO::getId)
+                .map(supplyInfoRepository::find)
+                .orElse(null);
+        sendInfo.setSupplyInfo(supplyInfo);
+        HeadInfo headInfo = Optional.ofNullable(command.getHeadInfo())
+                .map(EntityDTO::getId)
+                .map(headInfoRepository::find)
+                .orElse(null);
+        sendInfo.setHeadInfo(headInfo);
         Lfa1 lfa1 = Optional.ofNullable(command.getLfa1())
                 .map(EntityDTO::getId)
                 .map(lfa1Repository::find)
@@ -64,6 +80,11 @@ public class MegServiceImpl implements MegService {
                 .map(EntityDTO::getId)
                 .map(transCorpRepository::find)
                 .orElse(null);
+        sendInfo.setMegType(command.getMegType());
+        final T001l wharf = Optional.ofNullable(command.getWharf())
+                .map(t001lRepository::find)
+                .orElse(null);
+        sendInfo.setWharf(wharf);
         sendInfo.setTransCorp(transCorp);
         sendInfo.setCarNo(command.getCarNo());
         sendInfo.setCarDriver(command.getCarDriver());
@@ -72,14 +93,12 @@ public class MegServiceImpl implements MegService {
         sendInfo.setLfimg1(command.getSendLfimg1());
         sendInfo.setLfimg(command.getSendLfimg2().add(command.getSendLfimg1().negate()));
         sendInfo.setNote(command.getSendNote());
-        final T001l wharfT001l = t001lRepository.find(command.getWharf());
-        sendInfo.setWharf(wharfT001l);
 
         MegReceiveInfo receiveInfo = new MegReceiveInfo();
         sendInfo.setReceiveInfo(receiveInfo);
         final T001l t001l = t001lRepository.find(command.getReceiveT001l());
         receiveInfo.setT001l(t001l);
-        final T001w t001w = t001wRepository.find(t001l.getWerks());
+        final T001w t001w = t001wRepository.find(t001l);
         receiveInfo.setT001w(t001w);
         final T001 t001 = t001Repository.find(t001w);
         receiveInfo.setT001(t001);

@@ -8,8 +8,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Lfb1PK.class)
 public abstract class Lfb1PK_ {
 
-    public static volatile SingularAttribute<Lfb1PK, String> bukrs;
-    public static volatile SingularAttribute<Lfb1PK, String> lifnr;
+	public static volatile SingularAttribute<Lfb1PK, String> bukrs;
+	public static volatile SingularAttribute<Lfb1PK, String> lifnr;
 
 }
 

@@ -1,0 +1,89 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : com.hengyi.japp : cargo.war (exploded)">
+    <output-path>$PROJECT_DIR$/build/libs/exploded/cargo.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/cargo.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="japp-cargo_main/web/Web Gradle : cargo.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="japp-cargo_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.jzb:jzb-jee:1.0" />
+          <element id="library" level="project" name="Gradle: org.jzb:jzb-poi:1.0" />
+          <element id="library" level="project" name="Gradle: org.jzb:jzb-web:1.0" />
+          <element id="library" level="project" name="Gradle: org.jzb:jzb-core:1.0" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-text:1.1" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.6" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi-scratchpad:3.16" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi-ooxml:3.16" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi:3.16" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-collections4:4.1" />
+          <element id="library" level="project" name="Gradle: com.google.guava:guava:23.0" />
+          <element id="library" level="project" name="Gradle: io.jsonwebtoken:jjwt:0.8.0" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.uuid:java-uuid-generator:3.1.4" />
+          <element id="library" level="project" name="Gradle: com.belerweb:pinyin4j:2.5.1" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.2.3" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-access:1.2.3" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.9.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.1" />
+          <element id="library" level="project" name="Gradle: org.zwobble.mammoth:mammoth:1.3.1" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi-ooxml-schemas:3.16" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:ooxml-schemas:1.3" />
+          <element id="library" level="project" name="Gradle: org.apache.xmlbeans:xmlbeans:2.6.0" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.1" />
+          <element id="library" level="project" name="Gradle: com.github.virtuald:curvesapi:1.04" />
+          <element id="library" level="project" name="Gradle: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.2.3" />
+          <element id="library" level="project" name="Gradle: com.google.j2objc:j2objc-annotations:1.1" />
+          <element id="library" level="project" name="Gradle: org.codehaus.mojo:animal-sniffer-annotations:1.14" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/hengyi/japp/japp-sap-client/1.0/japp-sap-client-1.0.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/hengyi/japp/japp-sap-core/1.0/japp-sap-core-1.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-protobuf/1.6.1/a309df5d2627422ceb9cb08fb6a240656d75760a/grpc-protobuf-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-netty/1.6.1/6941e41b5f422da1670d5d01bf476644330b536e/grpc-netty-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-stub/1.6.1/f32b7ad69749ab6c7be5dd21f1e520a315418790/grpc-stub-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-protobuf-lite/1.6.1/124bca81a50bc76b6a6babcc4bc529e5a93db70f/grpc-protobuf-lite-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-core/1.6.1/871c934f3c7fbb477ccf2dd4c2a47a0bcc1b82a9/grpc-core-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java-util/3.3.1/35d048270e0b2f29e7e4a45daf21d46d1b121a24/protobuf-java-util-3.3.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api.grpc/proto-google-common-protos/0.1.9/3760f6a6e13c8ab070aa629876cdd183614ee877/proto-google-common-protos-0.1.9.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api/api-common/1.0.0-rc1/2e5ff0421f3988e0c628d7512b34723f48d82b65/api-common-1.0.0-rc1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.instrumentation/instrumentation-api/0.4.3/41614af3429573dc02645d541638929d877945a2/instrumentation-api-0.4.3.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opencensus/opencensus-api/0.5.1/cbd0a716a7d85ac34b83d86b13f0a6655e45c2ba/opencensus-api-0.5.1.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.9.0/okhttp-3.9.0.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.0.19/c3754a0bdd545b00ddc26884f9e7624f8b6a14de/error_prone_annotations-2.0.19.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.14.Final/d2af27befab8e1abfbf37d1ac2a5185dce1dbe/netty-codec-http2-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.14.Final/9dbedd6cc6ab9299c927d0c73791d3d8fd76ac20/netty-handler-proxy-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.3.1/e8964a2667e55d11a4505b329a4c34247663920b/protobuf-java-3.3.1.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-context/1.6.1/9c52ae577c2dd4b8c6ac6e49c1154e1dc37d98ee/grpc-context-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.14.Final/f287b593a37e516f98c9dae7337303e7254e8ea1/netty-codec-http-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.14.Final/626a48b846736c944eb35dd9b0fe0435b76ebf93/netty-handler-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.14.Final/b8d856c686ac960b9e9b9f8f9b4083978c161327/netty-codec-socks-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.14.Final/b8573ae401f17e6927f158e4c446311bf0646173/netty-codec-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.14.Final/3ed6474f1289635fc0696ec37380e20f258950a2/netty-transport-4.1.14.Final.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.7/gson-2.7.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.value/auto-value/1.1/f6951c141ea3e89c0f8b01da16834880a1ebf162/auto-value-1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.8.2/d27c24204c5e507b16fec01006b3d0f1ec42aed4/joda-time-2.8.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.14.Final/71f0a707209b1356d924d6f8b2f415f8b8e1cf82/netty-buffer-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.14.Final/f91e0197522e7d33fce84b3dfd86ade15edb0006/netty-resolver-4.1.14.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.14.Final/230ff063651295d2695c0b4e9411e22bbbb9c09d/netty-common-4.1.14.Final.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

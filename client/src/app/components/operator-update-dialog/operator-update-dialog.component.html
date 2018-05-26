@@ -1,0 +1,35 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{dialogTitle}}
+  </div>
+  <button class="close" mat-mini-fab matDialogClose *ngIf="isMobile$|async">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="permissionForm" fxLayout="column" fxFlex style="overflow-y: auto;">
+  <mat-form-field>
+    <mat-select [formControl]="defaultReceiveT001" placeholder="默认收货公司" [compareWith]="compareWithT001">
+      <mat-option>无</mat-option>
+      <mat-option *ngFor="let it of t001s$|async" [value]="it">
+        {{it.butxt}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="allT001s">{{'PERMISSION.ALLT001S'|translate}}</mat-checkbox>
+
+  <mat-form-field>
+    <mat-select [formControl]="t001s" [multiple]="true" placeholder="报表查看公司" [compareWith]="compareWithT001">
+      <mat-option *ngFor="let it of t001s$|async" [value]="it">
+        {{it.butxt}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="admin">{{'PERMISSION.ADMIN'|translate}}</mat-checkbox>
+
+  <button type="button" (click)="submit()" mat-raised-button color="primary" [disabled]="permissionForm.pristine||permissionForm.invalid">
+    完成
+  </button>
+</form>

@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -51,6 +52,7 @@ public class Fix {
         Sets.newHashSet("1000", "2000", "3000", "9100", "9200", "9300")
                 .stream()
                 .map(t001Repository::find)
+                .filter(Objects::nonNull)
                 .forEach(t001 -> {
                     ReceiveT001 receiveT001 = new ReceiveT001();
                     receiveT001.setT001(t001);
@@ -72,15 +74,18 @@ public class Fix {
                 new T001lPK("9210", "9012"),
                 new T001lPK("9310", "9315"),
                 new T001lPK("9110", "9101")
-        ).stream().map(t001lRepository::find).forEach(t001l -> {
-            ReceiveT001l receiveT001l = new ReceiveT001l();
-            receiveT001l.setT001l(t001l);
-            receiveT001l.setWerks(t001l.getWerks());
-            receiveT001l.setLgort(t001l.getLgort());
-            receiveT001l._log(operator);
-            receiveT001lRepository.save(receiveT001l);
-        });
-        // 码头
+        ).stream()
+                .map(t001lRepository::find)
+                .filter(Objects::nonNull)
+                .forEach(t001l -> {
+                    ReceiveT001l receiveT001l = new ReceiveT001l();
+                    receiveT001l.setT001l(t001l);
+                    receiveT001l.setWerks(t001l.getWerks());
+                    receiveT001l.setLgort(t001l.getLgort());
+                    receiveT001l._log(operator);
+                    receiveT001lRepository.save(receiveT001l);
+                });
+        // 码头外库
         Sets.newHashSet(
                 new T001lPK("3100", "3102"),
                 new T001lPK("3100", "3103"),
@@ -111,13 +116,16 @@ public class Fix {
                 new T001lPK("9110", "9185"),
                 new T001lPK("9110", "9186"),
                 new T001lPK("9110", "9187")
-        ).stream().map(t001lRepository::find).forEach(t001l -> {
-            WharfT001l wharfT001l = new WharfT001l();
-            wharfT001l.setT001l(t001l);
-            wharfT001l.setWerks(t001l.getWerks());
-            wharfT001l.setLgort(t001l.getLgort());
-            wharfT001l._log(operator);
-            wharfT001lRepository.save(wharfT001l);
-        });
+        ).stream()
+                .map(t001lRepository::find)
+                .filter(Objects::nonNull)
+                .forEach(t001l -> {
+                    WharfT001l wharfT001l = new WharfT001l();
+                    wharfT001l.setT001l(t001l);
+                    wharfT001l.setWerks(t001l.getWerks());
+                    wharfT001l.setLgort(t001l.getLgort());
+                    wharfT001l._log(operator);
+                    wharfT001lRepository.save(wharfT001l);
+                });
     }
 }

@@ -1,8 +1,8 @@
 package com.hengyi.japp.cargo.interfaces.res.resources;
 
-import com.hengyi.japp.cargo.application.GpsDataService;
-import com.hengyi.japp.cargo.domain.gps.CarData;
-import com.hengyi.japp.cargo.domain.gps.CarGpsData;
+import com.hengyi.japp.cargo.interfaces.gps.GpsDataService;
+import com.hengyi.japp.cargo.interfaces.gps.CarData;
+import com.hengyi.japp.cargo.interfaces.gps.CarGpsData;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.ejb.Stateless;

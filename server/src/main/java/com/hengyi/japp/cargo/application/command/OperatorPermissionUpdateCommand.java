@@ -10,10 +10,18 @@ import java.util.Set;
  * @author jzb 2017-12-02
  */
 public class OperatorPermissionUpdateCommand implements Serializable {
+    private boolean admin;
     private boolean allT001s;
-    @NotNull
     private EntityDTO defaultReceiveT001;
     private Set<EntityDTO> t001s;
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 
     public EntityDTO getDefaultReceiveT001() {
         return defaultReceiveT001;

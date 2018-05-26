@@ -67,22 +67,4 @@ public class PtaSendInfoResource {
         ptaService.delete(sc.getUserPrincipal(), id);
     }
 
-    @GET
-    public Map list(@Context SecurityContext sc,
-                    @QueryParam("date") String date,
-                    @QueryParam("startDate") String dateStart,
-                    @QueryParam("endDate") String dateEnd,
-                    @Valid @Min(0) @QueryParam("first") @DefaultValue("0") int first,
-                    @Valid @Min(10) @QueryParam("pageSize") @DefaultValue("10") int pageSize) throws Exception {
-        PtaSendInfoQuery query = new PtaSendInfoQuery(sc.getUserPrincipal(), first, pageSize);
-        Optional.ofNullable(date).filter(J::nonBlank).map(LocalDate::parse).ifPresent(it -> query.ld = it);
-        Optional.ofNullable(dateStart).filter(J::nonBlank).map(LocalDate::parse).ifPresent(it -> query.ldStart = it);
-        Optional.ofNullable(dateEnd).filter(J::nonBlank).map(LocalDate::parse).ifPresent(it -> query.ldEnd = it);
-        query.exe(ptaSendInfoRepository);
-        return ImmutableMap.of(
-                "count", query.count,
-                "sendInfos", query.result.collect(Collectors.toSet())
-        );
-    }
-
 }

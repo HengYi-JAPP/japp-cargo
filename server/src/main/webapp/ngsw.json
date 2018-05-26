@@ -1,0 +1,51 @@
+{
+  "configVersion": 1,
+  "index": "/cargo/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/cargo/favicon.ico",
+        "/cargo/index.html",
+        "/cargo/0.5212f2f54cbe11a747a9.chunk.js",
+        "/cargo/1.1c702cedeb33780da98b.chunk.js",
+        "/cargo/2.5a696dc226d7dad53d54.chunk.js",
+        "/cargo/3.867f4a9613e82aae18d0.chunk.js",
+        "/cargo/4.3161d2947e984f7a900f.chunk.js",
+        "/cargo/inline.2590402c243111ab57fa.bundle.js",
+        "/cargo/main.b7e732193283793ab582.bundle.js",
+        "/cargo/polyfills.7b2d5822faff4e60f768.bundle.js",
+        "/cargo/scripts.d8bd2f0d55497defebc9.bundle.js",
+        "/cargo/styles.893214a5d26e9417ed74.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/cargo/assets/i18n/zh_CN.json"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/cargo/0.5212f2f54cbe11a747a9.chunk.js": "40ce000a55ae948e489345a503367b47fc244a1a",
+    "/cargo/assets/i18n/zh_CN.json": "c12f0e6f7176bd78834d0556fcd4110c375bce71",
+    "/cargo/1.1c702cedeb33780da98b.chunk.js": "6fe16dfdcd11a26967f53c14a30499933af331b3",
+    "/cargo/2.5a696dc226d7dad53d54.chunk.js": "f6ca15830c97d882e2dd305554e384234f976c80",
+    "/cargo/3.867f4a9613e82aae18d0.chunk.js": "3551835c1d85dafb9ba8d1707299f7655ecd6874",
+    "/cargo/4.3161d2947e984f7a900f.chunk.js": "47d3bf47ede0ddf838678ffaf5e3c46aa5ee9802",
+    "/cargo/inline.2590402c243111ab57fa.bundle.js": "75a7598e71a1935a155ee53ce0c33635faa421ed",
+    "/cargo/main.b7e732193283793ab582.bundle.js": "3159c17c4f2429f0473c832badbdf3fbf37ca33d",
+    "/cargo/polyfills.7b2d5822faff4e60f768.bundle.js": "f65dde1ef6391e1b14acc7af0d0b62dbd395c8dd",
+    "/cargo/scripts.d8bd2f0d55497defebc9.bundle.js": "d76d390233502eb5ee9f6b8484d9e8689f4b668c",
+    "/cargo/styles.893214a5d26e9417ed74.bundle.css": "ba7885d8c783cba378b890ce63539bc863acf843",
+    "/cargo/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/cargo/index.html": "a7b9f0aa68d385498fb25a5488e2746a95cac55c"
+  }
+}

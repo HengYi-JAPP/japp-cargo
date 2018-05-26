@@ -1,0 +1,40 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+  </div>
+  <button class="close" mat-mini-fab matDialogClose>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="form" (ngSubmit)="submit()" fxFlex style="overflow-y: auto;" fxLayout="column">
+  <mat-form-field>
+    <input [formControl]="startDate" required matInput [matDatepicker]="startDatePicker" [min]="minStartDate" [max]="maxStartDate$|async" [placeholder]="'COMMON.START_DATE'|translate">
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [formControl]="endDate" required matInput [matDatepicker]="endDatePicker" [max]="maxEndDate" [placeholder]="'COMMON.END_DATE'|translate">
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="allT001s">{{'PERMISSION.ALLT001S'|translate}}</mat-checkbox>
+
+  <mat-form-field>
+    <mat-select [formControl]="t001s" [multiple]="true" [placeholder]="'T001'|translate" [compareWith]="compareWithT001">
+      <mat-option *ngFor="let t001 of t001s$|async" [value]="t001">
+        {{t001.butxt}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="t001s.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button type="button" (click)="submit()" mat-raised-button color="primary" [disabled]="form.invalid">
+      {{'COMMON.EXPORT'|translate}}
+    </button>
+  </div>
+</form>

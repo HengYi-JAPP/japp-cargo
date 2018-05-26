@@ -1,0 +1,34 @@
+<mat-toolbar class="title">
+  <div fxFlex class="dialog-title truncate">
+    {{dialogTitle}}
+  </div>
+  <button class="close" mat-mini-fab matDialogClose *ngIf="isMobile$|async">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="supplyInfoForm" (ngSubmit)="submit()" fxFlex style="overflow-y: auto;" fxLayout="column">
+  <mat-form-field>
+    <input matInput [formControl]="name" required placeholder="名称">
+    <mat-error *ngIf="name.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [formControl]="t001s" [multiple]="true" required placeholder="公司" [compareWith]="compareWithT001">
+      <mat-option *ngFor="let t001 of t001s$|async" [value]="t001">
+        {{t001.butxt}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="t001s.hasError('required')">
+      <span translate>VALIDATORS.REQUIRED</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button type="button" (click)="submit()" mat-raised-button color="primary" [disabled]="supplyInfoForm.pristine||supplyInfoForm.invalid">
+      完成
+    </button>
+  </div>
+</form>

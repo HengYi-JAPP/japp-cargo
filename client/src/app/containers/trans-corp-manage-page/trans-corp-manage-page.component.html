@@ -1,0 +1,35 @@
+<button type="button" (click)="create()" mat-mini-fab class="my-add" [matTooltip]="'TOOLTIP.NEW-TRANSCORP'|translate">
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-table [dataSource]="dataSource" fxFlex style="overflow-y: auto;">
+
+  <ng-container cdkColumnDef="t001s">
+    <mat-header-cell *cdkHeaderCellDef>{{'T001'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <p *ngFor="let t001 of row.t001s">
+        {{t001.butxt}}
+      </p>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="name">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.NAME'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"> {{row.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="btns">
+    <mat-header-cell *cdkHeaderCellDef>{{'COMMON.OPERATE'|translate}}</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button mat-button (click)="update(row)" mat-button color="primary">
+        {{'COMMON.EDIT'|translate}}
+      </button>
+      <button mat-button (click)="delete(row)" mat-button color="warn">
+        {{'COMMON.DELETE'|translate}}
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

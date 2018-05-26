@@ -1,0 +1,6 @@
+<input matInput [formControl]="lfa1Ctrl" [matAutocomplete]="autoLfa1">
+<mat-autocomplete #autoLfa1="matAutocomplete" [displayWith]="displayLfa1Fn">
+  <mat-option *ngFor="let it of lfa1s$|async" [value]="it" [matTooltip]="it.name1">
+    {{it.lifnr|delPreZero}} {{it.name1}}
+  </mat-option>
+</mat-autocomplete>

@@ -8,8 +8,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(LipsPK.class)
 public abstract class LipsPK_ {
 
-    public static volatile SingularAttribute<LipsPK, String> posnr;
-    public static volatile SingularAttribute<LipsPK, String> vbeln;
+	public static volatile SingularAttribute<LipsPK, String> posnr;
+	public static volatile SingularAttribute<LipsPK, String> vbeln;
 
 }
 

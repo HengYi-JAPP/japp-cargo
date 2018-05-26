@@ -1,7 +1,7 @@
 package com.hengyi.japp.cargo.interfaces.websocket.conf;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.hengyi.japp.cargo.domain.gps.CarGpsData;
+import com.hengyi.japp.cargo.interfaces.gps.CarGpsData;
 
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;

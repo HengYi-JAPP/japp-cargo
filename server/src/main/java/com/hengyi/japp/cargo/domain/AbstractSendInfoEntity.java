@@ -1,5 +1,7 @@
 package com.hengyi.japp.cargo.domain;
 
+import com.hengyi.japp.cargo.domain.config.HeadInfo;
+import com.hengyi.japp.cargo.domain.config.SupplyInfo;
 import com.hengyi.japp.cargo.domain.config.TransCorp;
 import com.hengyi.japp.cargo.domain.sap.Lfa1;
 import org.hibernate.validator.constraints.NotBlank;
@@ -23,6 +25,10 @@ public abstract class AbstractSendInfoEntity extends AbstractLoggableEntity impl
     private boolean deleted;
     @Version
     private long version;
+    @ManyToOne
+    private SupplyInfo supplyInfo;
+    @ManyToOne
+    private HeadInfo headInfo;
     @ManyToOne
     private Lfa1 lfa1;
     @Temporal(TemporalType.DATE)
@@ -78,6 +84,22 @@ public abstract class AbstractSendInfoEntity extends AbstractLoggableEntity impl
 
     public void setVersion(long version) {
         this.version = version;
+    }
+
+    public SupplyInfo getSupplyInfo() {
+        return supplyInfo;
+    }
+
+    public void setSupplyInfo(SupplyInfo supplyInfo) {
+        this.supplyInfo = supplyInfo;
+    }
+
+    public HeadInfo getHeadInfo() {
+        return headInfo;
+    }
+
+    public void setHeadInfo(HeadInfo headInfo) {
+        this.headInfo = headInfo;
     }
 
     public Lfa1 getLfa1() {

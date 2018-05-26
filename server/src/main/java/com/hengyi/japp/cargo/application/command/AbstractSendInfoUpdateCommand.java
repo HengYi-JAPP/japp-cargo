@@ -17,7 +17,9 @@ import java.util.List;
  * @author jzb 2017-12-07
  */
 public abstract class AbstractSendInfoUpdateCommand implements Serializable {
+    private EntityDTO headInfo;
     private EntityDTO lfa1;
+    private EntityDTO supplyInfo;
     @NotNull
     private Date sendDate;
     @NotBlank
@@ -47,6 +49,22 @@ public abstract class AbstractSendInfoUpdateCommand implements Serializable {
     @NotNull
     private BigDecimal diffLfimg2;
     private String receiveNote;
+
+    public EntityDTO getHeadInfo() {
+        return headInfo;
+    }
+
+    public void setHeadInfo(EntityDTO headInfo) {
+        this.headInfo = headInfo;
+    }
+
+    public EntityDTO getSupplyInfo() {
+        return supplyInfo;
+    }
+
+    public void setSupplyInfo(EntityDTO supplyInfo) {
+        this.supplyInfo = supplyInfo;
+    }
 
     private List<SapReceiveInfoDTO> sapReceiveInfos;
 

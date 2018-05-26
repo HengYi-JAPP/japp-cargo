@@ -18,6 +18,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.security.Principal;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -38,7 +39,10 @@ public class OperatorServiceImpl implements OperatorService {
             Operator operator = operatorRepository.find(id);
             operatorPermission.setOperator(operator);
         }
-        final T001 defaultReceiveT001 = t001Repository.find(command.getDefaultReceiveT001().getId());
+        final T001 defaultReceiveT001 = Optional.ofNullable(command.getDefaultReceiveT001())
+                .map(EntityDTO::getId)
+                .map(t001Repository::find)
+                .orElse(null);
         operatorPermission.setDefaultReceiveT001(defaultReceiveT001);
         operatorPermission.setAllT001s(command.isAllT001s());
         if (command.isAllT001s()) {
@@ -52,6 +56,9 @@ public class OperatorServiceImpl implements OperatorService {
             t001s.add(defaultReceiveT001);
             operatorPermission.setT001s(t001s);
         }
+        final Operator operator = operatorPermission.getOperator();
+        operator.setAdmin(command.isAdmin());
+        operatorRepository.save(operator);
         return operatorPermissionRepository.save(operatorPermission);
     }
 

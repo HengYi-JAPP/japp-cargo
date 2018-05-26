@@ -13,6 +13,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "T_PTASENDINFO")
+@NamedQueries({
+        @NamedQuery(name = "PtaSendInfo.queryByYlips", query = "SELECT o FROM PtaSendInfo o WHERE o.ylips=:ylips AND o.deleted=FALSE"),
+        @NamedQuery(name = "PtaSendInfo.querySendInfo", query = "SELECT o FROM PtaSendInfo o WHERE o.sendDate=:sendDate AND o.creator.id=:creatorId AND o.deleted=FALSE"),
+})
 public class PtaSendInfo extends AbstractSendInfoEntity {
     @NotBlank
     private String packType;

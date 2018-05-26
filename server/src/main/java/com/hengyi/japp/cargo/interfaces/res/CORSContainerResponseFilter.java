@@ -19,7 +19,7 @@ public class CORSContainerResponseFilter implements ContainerResponseFilter {
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext response) {
         response.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
-        response.getHeaders().putSingle("Access-Control-Allow-Headers", "origin, content-type, accept, Authorization");
+        response.getHeaders().putSingle("Access-Control-Allow-Headers", "*");
         response.getHeaders().putSingle("Access-Control-Allow-Credentials", "true");
         response.getHeaders().putSingle("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
         response.getHeaders().putSingle("Access-Control-Max-Age", "1209600");
