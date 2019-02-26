@@ -10,7 +10,7 @@ import com.hengyi.japp.sap.client.JSap;
 import com.hengyi.japp.sap.client.RfcClient;
 import com.hengyi.japp.sap.grpc.server.ExeRfcReply;
 
-import static org.jzb.Constant.MAPPER;
+import static com.github.ixtf.japp.core.Constant.MAPPER;
 
 /**
  * 描述：

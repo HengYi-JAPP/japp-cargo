@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.type.CollectionLikeType;
+import com.github.ixtf.japp.core.J;
 import com.hengyi.japp.cargo.domain.sap.Likp;
 import com.hengyi.japp.cargo.domain.sap.Lips;
 import com.hengyi.japp.cargo.domain.sap.LipsPK;
@@ -12,7 +13,6 @@ import com.hengyi.japp.cargo.interfaces.sap.SapService;
 import com.hengyi.japp.sap.RfcExeCommand;
 import com.hengyi.japp.sap.client.RfcClient;
 import com.hengyi.japp.sap.grpc.server.ExeRfcReply;
-import org.jzb.J;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import static org.jzb.Constant.MAPPER;
+import static com.github.ixtf.japp.core.Constant.MAPPER;
 
 /**
  * 描述：
@@ -76,9 +76,10 @@ public class SapServiceImpl implements SapService {
                     LipsPK pk = new LipsPK();
                     pk.setVbeln(it.get("VBELN").asText());
                     pk.setPosnr(it.get("POSNR").asText());
-                    // 工作联络单问题，
-                    // SAP交货单会被冲销，
-                    // 但由于发货次数过多，地磅单不冲销了
+                    /**
+                     * 工作联络单问题，
+                     * SAP交货单会被冲销，但由于发货次数过多，地磅单不冲销了
+                     */
                     return Optional.ofNullable(pk.getVbeln())
                             .filter(J::nonBlank)
                             .map(likpMap::get)
